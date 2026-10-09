@@ -1,0 +1,41 @@
+# ============================================================
+# 资产管理系统 —— 后端依赖
+# 安装：pip install -r requirements.txt
+# Python 3.11+（已在 3.12 上验证）
+# ============================================================
+
+# ---- Web 框架 ----
+fastapi>=0.115,<1.0
+uvicorn[standard]>=0.30,<1.0
+gunicorn>=22.0,<24.0          # 生产环境进程管理（Windows 下请用 uvicorn 直接启动）
+python-multipart>=0.0.9       # 表单 / 文件上传（Excel 导入）
+
+# ---- 数据校验与配置 ----
+pydantic>=2.7,<3.0
+pydantic-settings>=2.3,<3.0
+email-validator>=2.1          # EmailStr 校验
+python-dotenv>=1.0
+
+# ---- 数据库 ----
+SQLAlchemy>=2.0.30,<2.1
+alembic>=1.13,<2.0
+PyMySQL>=1.1
+cryptography>=42.0            # MySQL8 caching_sha2_password 认证需要
+
+# ---- 认证 ----
+PyJWT>=2.8
+passlib[bcrypt]>=1.7.4
+bcrypt==4.0.1                 # 4.1+ 与 passlib 1.7.4 不兼容，锁定此版本
+
+# ---- 定时任务 ----
+APScheduler>=3.10,<4.0
+
+# ---- Excel ----
+openpyxl>=3.1
+
+# ---- 邮件 ----
+fastapi-mail>=1.4
+
+# ---- 测试 ----
+pytest>=8.0
+httpx>=0.27

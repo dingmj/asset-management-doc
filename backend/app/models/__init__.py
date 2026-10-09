@@ -1,0 +1,123 @@
+"""
+ORM 模型统一出口。
+
+**重要**：Alembic 的 ``env.py`` 通过导入本模块来收集 ``Base.metadata``，
+后续阶段新增的模型必须在这里登记，否则 autogenerate 不会生成对应表。
+"""
+
+from app.db.base import Base
+from app.models.asset import (
+    ASSET_STATUS_AVAILABLE,
+    ASSET_STATUS_BORROWED,
+    ASSET_STATUS_LABELS,
+    ASSET_STATUS_REPAIR,
+    ASSET_STATUS_SCRAPPED,
+    BORROWABLE_STATUSES,
+    Asset,
+    AssetType,
+)
+from app.models.borrow import (
+    ACTION_APPROVE,
+    ACTION_CANCEL,
+    ACTION_LABELS,
+    ACTION_REJECT,
+    ACTION_RETURN,
+    APPLY_NO_PREFIX,
+    APPLY_STATUS_APPROVED,
+    APPLY_STATUS_CANCELED,
+    APPLY_STATUS_LABELS,
+    APPLY_STATUS_PENDING,
+    APPLY_STATUS_REJECTED,
+    APPLY_TYPE_BORROW,
+    APPLY_TYPE_LABELS,
+    APPLY_TYPE_RENEW,
+    ApprovalRecord,
+    BorrowApply,
+)
+from app.models.notification import (
+    CHANNEL_LABELS,
+    CHANNEL_MAIL,
+    CHANNEL_SITE,
+    MAIL_MAX_RETRY,
+    MAIL_STATUS_FAILED,
+    MAIL_STATUS_LABELS,
+    MAIL_STATUS_PENDING,
+    MAIL_STATUS_SENT,
+    NOTIFY_READ,
+    NOTIFY_TYPE_APPROVAL,
+    NOTIFY_TYPE_LABELS,
+    NOTIFY_TYPE_REMIND,
+    NOTIFY_TYPE_SYSTEM,
+    NOTIFY_UNREAD,
+    REMIND_STATUS_FAILED,
+    REMIND_STATUS_LABELS,
+    REMIND_STATUS_SUCCESS,
+    REMIND_TYPE_DUE_SOON,
+    REMIND_TYPE_LABELS,
+    REMIND_TYPE_OVERDUE,
+    MailLog,
+    Notification,
+    RemindLog,
+)
+from app.models.role import ROLE_ADMIN, ROLE_USER, SysRole, SysUserRole
+from app.models.user import SysUser
+
+__all__ = [
+    "Base",
+    # 阶段一
+    "SysUser",
+    "SysRole",
+    "SysUserRole",
+    "ROLE_ADMIN",
+    "ROLE_USER",
+    # 阶段二
+    "Asset",
+    "AssetType",
+    "ASSET_STATUS_AVAILABLE",
+    "ASSET_STATUS_BORROWED",
+    "ASSET_STATUS_REPAIR",
+    "ASSET_STATUS_SCRAPPED",
+    "ASSET_STATUS_LABELS",
+    "BORROWABLE_STATUSES",
+    # 阶段三
+    "BorrowApply",
+    "ApprovalRecord",
+    "APPLY_TYPE_BORROW",
+    "APPLY_TYPE_RENEW",
+    "APPLY_TYPE_LABELS",
+    "APPLY_STATUS_PENDING",
+    "APPLY_STATUS_APPROVED",
+    "APPLY_STATUS_REJECTED",
+    "APPLY_STATUS_CANCELED",
+    "APPLY_STATUS_LABELS",
+    "ACTION_APPROVE",
+    "ACTION_REJECT",
+    "ACTION_CANCEL",
+    "ACTION_RETURN",
+    "ACTION_LABELS",
+    "APPLY_NO_PREFIX",
+    # 阶段四
+    "Notification",
+    "MailLog",
+    "RemindLog",
+    "NOTIFY_TYPE_SYSTEM",
+    "NOTIFY_TYPE_APPROVAL",
+    "NOTIFY_TYPE_REMIND",
+    "NOTIFY_TYPE_LABELS",
+    "NOTIFY_UNREAD",
+    "NOTIFY_READ",
+    "MAIL_STATUS_PENDING",
+    "MAIL_STATUS_SENT",
+    "MAIL_STATUS_FAILED",
+    "MAIL_STATUS_LABELS",
+    "MAIL_MAX_RETRY",
+    "REMIND_TYPE_DUE_SOON",
+    "REMIND_TYPE_OVERDUE",
+    "REMIND_TYPE_LABELS",
+    "CHANNEL_SITE",
+    "CHANNEL_MAIL",
+    "CHANNEL_LABELS",
+    "REMIND_STATUS_SUCCESS",
+    "REMIND_STATUS_FAILED",
+    "REMIND_STATUS_LABELS",
+]

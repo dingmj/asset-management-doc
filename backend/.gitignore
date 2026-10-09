@@ -1,0 +1,35 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+env/
+
+# 环境变量（含数据库密码，禁止提交）
+.env
+.env.local
+.env.*.local
+
+# 日志
+logs/
+*.log
+
+# 上传/导出临时文件
+uploads/
+exports/
+
+# 本机临时 MySQL 实例的数据目录（仅本地验证用，不属于项目产物）
+.mysql-data/
+
+# 冒烟测试输出
+pip-install.log
+
+# IDE
+.idea/
+.vscode/
+
+# 测试
+.pytest_cache/
+.coverage
+htmlcov/
