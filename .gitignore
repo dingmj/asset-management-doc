@@ -1,0 +1,28 @@
+# ---- 本地数据 / 运行产物（体积巨大，绝不入库）----
+.mysql-data/
+*.log
+logs/
+
+# ---- Python ----
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+env/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+*.sqlite3
+*.db
+
+# ---- 编辑器 / 工具 ----
+.idea/
+.vscode/
+.claude/
+
+# ---- 密钥 / 本地配置 ----
+.env
+.env.*
+!.env.example
+*.pem
